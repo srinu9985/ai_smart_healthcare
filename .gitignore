@@ -1,0 +1,13 @@
+.env
+.idea
+.venv
+app/api/__pycache__/analytics.cpython-313.pyc
+app/__pycache__/main.cpython-313.pyc
+*.pyc
+/app/__pycache__
+*.pyc
+# Ignore Docker-related files
+Dockerfile
+docker-compose.yml
+logs
+emma_healthcare/
