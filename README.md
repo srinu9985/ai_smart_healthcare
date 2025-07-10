@@ -1,93 +1,93 @@
-# Emma_Healthcare
+🏥 SmartCare - AI-Powered Healthcare Access Platform
+🚀 Overview
+SmartCare is a backend-first healthcare assistant platform built using FastAPI, MongoDB, and LLM integrations. It addresses healthcare accessibility challenges with multilingual support and intelligent appointment routing, designed to communicate with patients in their preferred language.
 
+This README outlines:
 
+✅ Phase 1: Implemented core APIs
 
-## Getting started
+🛠️ Phase 2: Upcoming hackathon features
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+✅ Phase 1: Implemented Features
+🔹 Multilingual Symptom Checker (Enhanced Description ✅)
+Accepts symptom descriptions in regional languages (e.g., Telugu, Hindi).
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Understands and speaks back in the user’s preferred language using LLM prompting.
 
-## Add your files
+Guides the user to the correct medical department based on the interpreted symptoms.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+Enables seamless communication between patient and system in their native language, improving comfort and accuracy.
 
-```
-cd existing_repo
-git remote add origin https://gitlab.nimbleio.ai/nimble-dev/emma_healthcare.git
-git branch -M main
-git push -uf origin main
-```
+🧠 Example: If a patient says “పొట్ట నొప్పి” (stomach pain) in Telugu, the system interprets it, determines it relates to Gastroenterology, and responds in Telugu to guide the user.
 
-## Integrate with your tools
+🔹 Appointment Booking API
+Auto-selects department and optionally the doctor based on symptoms.
 
-- [ ] [Set up project integrations](https://gitlab.nimbleio.ai/nimble-dev/emma_healthcare/-/settings/integrations)
+Books an available slot based on the patient’s preferred date.
 
-## Collaborate with your team
+🔹 Available Slots API
+Endpoint: /available-slots
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+Input: department
 
-## Test and Deploy
+Output: Available doctor appointment slots
 
-Use the built-in continuous integration in GitLab.
+🧰 Technology Stack
+Component	Technology
+Backend	FastAPI (Python)
+Database	MongoDB
+AI/LLM Engine	OpenAI / LangChain
+Deployment	Backend-only (Postman/API-based)
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+🧪 API Overview
+1. /symptom-checker
+Input: symptom, language
 
-***
+Output: Mapped department with guidance message in preferred language
 
-# Editing this README
+2. /book-appointment
+Input: email, department, preferred_date
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Output: Appointment confirmation
 
-## Suggestions for a good README
+3. /available-slots
+Input: department
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+Output: Doctor time slots
 
-## Name
-Choose a self-explaining name for your project.
+📊 Sample Workflow
+Patient submits: “పొట్ట నొప్పి” (symptom, language: Telugu)
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+/symptom-checker:
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Interprets the symptom
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Maps to: Gastroenterology
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Responds in Telugu guiding patient to the department
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+/available-slots fetches times
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+/book-appointment books a slot
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+📦 Phase 2 Roadmap (Planned Features)
+🔐 Blockchain Drug Verification
+Simulate medicine batch verification via Hyperledger
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+📈 Inventory Prediction
+Predict drug demand based on upcoming appointments
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+🔔 Shortage Alert API
+Notify admins when drug stock may fall short
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+🚧 Note: These are future features and not yet implemented in Phase 1.
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+👥 Team Capabilities
+Backend: FastAPI, MongoDB
 
-## License
-For open source projects, say how it is licensed.
+AI/NLP: LLM Prompting, Multilingual Parsing
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Healthcare Domain Knowledge
+
+📌 Conclusion
+SmartCare’s Phase 1 delivers a fully functional multilingual AI backend for guiding patients and booking appointments. It adapts communication in the user's own language, increasing accessibility. The upcoming Phase 2 features aim to evolve it into an end-to-end intelligent healthcare platform.
