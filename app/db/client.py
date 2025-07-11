@@ -9,7 +9,7 @@ if not MONGO_URI:
     raise ValueError("MONGO_URI is not set in the environment")
 
 client = MongoClient(MONGO_URI)
-db = client["ai_healthcare"]
+db = client["emma_healthcare"]
 
 patients_collection = db["patients"]
 appointments_collection = db["appointments"]

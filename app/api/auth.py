@@ -11,7 +11,6 @@ from app.db.client import get_db
 from app.models.schemas import UserCompleteRegistration
 from app.core.logger import logger
 
-from app.services.connectorio import send_connectorio_email
 
 import random
 import string

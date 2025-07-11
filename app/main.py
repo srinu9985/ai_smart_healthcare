@@ -3,8 +3,7 @@ import datetime
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from app.api import appointments, doctors, healthcare, healthcare_calls, auth, analytics, \
-    patients
+from app.api import appointments, doctors, healthcare, healthcare_calls, auth,patients
 from app.api import webhooks
 from contextlib import asynccontextmanager
 from dotenv import load_dotenv  
@@ -26,7 +25,6 @@ app.add_middleware(
 
 app.include_router(appointments.router)
 app.include_router(auth.router)
-app.include_router(analytics.router)
 app.include_router(doctors.router)
 app.include_router(patients.router)
 app.include_router(healthcare.router)
